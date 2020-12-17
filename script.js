@@ -1,4 +1,4 @@
-// Variables
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
 var lowerArray = arrayRandomsLowToHigh(97,122);
@@ -10,6 +10,7 @@ var passwordfinal =[];
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+
 // Write password to the #password input
 function writePassword() {
 
@@ -20,29 +21,24 @@ function writePassword() {
   
   var password = generatePassword(passLenght, symbolChar, numberChar, upperChar);
  
-  //print the password to the DOM
   passwordText.value = passwordfinal;
  
 }
 
 function generatePassword(passLenght, symbolChar, numberChar, upperChar) {
  
-  var optionsPass = lowerArray;
-  console.log(optionsPass);
+   var optionsPass = lowerArray;
 
   if (upperChar) optionsPass = optionsPass.concat(upperArray);
   if (numberChar) optionsPass = optionsPass.concat(numberArray);
   if (symbolChar) optionsPass = optionsPass.concat(symbolArray);
   
-  console.log(optionsPass);
-  
   for (var i = 0; i < passLenght; i++){
 
     var passcode = optionsPass[Math.floor(Math.random() * optionsPass.length)];
     passwordfinal.push(String.fromCharCode(passcode));
-    console.log(passwordfinal);
     
-  } 
+  }
    return passwordfinal.join("");
 }
 

@@ -30,4 +30,4 @@ Deployed URL: [https://v1zconde.github.io/PasswordGenerator/](https://v1zconde.g
 
 ## Website
 ---
-![Password Generator Index](./assets/img/pn-index.png)
+![Password Generator](./assets/img/pg-index.png)

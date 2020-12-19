@@ -6,26 +6,24 @@ var upperArray = arrayRandomsLowToHigh(65, 90);
 var numberArray = arrayRandomsLowToHigh(48, 57);
 var symbolArray = arrayRandomsLowToHigh(33, 47);
 var passwordFinal = [];
-var passpass = "";
+var passLast = "";
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
-// Write password to the #password input
+// Function to write password to the #password input
 function writePassword() {
-
+// Calling determineOptions function
   determineOptions();
-  passwordText.value = passpass;
+  passwordText.value = passLast;
 
 }
 
 function determineOptions() {
   //Validate they put a number between 8-128 and its not empty
   var lengthPass = parseInt(prompt("How long is going to be the password lenght"));
-
-  console.log(lengthPass);
-
+  
   if (isNaN(lengthPass)) {
     alert("Need to input a number");
     determineOptions();
@@ -35,19 +33,16 @@ function determineOptions() {
     determineOptions();
   }
   else {
-
-    console.log("test");
-
     var symbolChar = confirm("Click confirm to add Symbol Char in your password");
     var numberChar = confirm("Click confirm to add Number Char in your password");
     var upperChar = confirm("Click confirm to add Upper Char in your password");
     var lowerChar = confirm("Click confirm to add Upper Char in your password");
     if (symbolChar || numberChar || upperChar || lowerChar) {
-      passpass = generatePassword(lengthPass, symbolChar, numberChar, upperChar, lowerChar);
+      passLast = generatePassword(lengthPass, symbolChar, numberChar, upperChar, lowerChar);
     }
     else {
       alert("You need to pick one of the options for the password")
-      passwordText.value = "";
+     // passwordText.value = "";
       determineOptions();
     }
     return lengthPass;
@@ -69,9 +64,8 @@ function generatePassword(passLenght, symbolChar, numberChar, upperChar, lowerCh
     //making the numbers to characters for the password
     var passCode = optionsPass[Math.floor(Math.random() * optionsPass.length)];
     passwordFinal.push(String.fromCharCode(passCode));
-
   }
-
+//returning the password
   return passwordFinal.join("");
 }
 
